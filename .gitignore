@@ -6,3 +6,6 @@ site/nginx.conf.compiled
 
 # logs
 site/logs/
+
+# vim
+*.swp
