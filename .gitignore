@@ -1,0 +1,8 @@
+# files with security keys
+site/secret.lua
+
+# generated files
+site/nginx.conf.compiled
+
+# logs
+site/logs/
