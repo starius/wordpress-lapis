@@ -49,14 +49,14 @@ end
 model.Users = Model:extend(PREFIX .. "users", {
     primary_key = "ID",
     relations = {
-        {"usermeta", has_many="UserMeta", key="user_id"}
+        {"usermeta", has_many="UserMeta", key="user_id"},
     },
 })
 
 model.UserMeta = Model:extend(PREFIX .. "usermeta", {
     primary_key = "umeta_id",
     relations = {
-        {"user", belongs_to="Users", key="user_id"}
+        {"user", belongs_to="Users", key="user_id"},
     },
 })
 
