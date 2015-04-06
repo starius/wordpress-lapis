@@ -34,7 +34,7 @@ function model.create_schema()
         {"user_url", types.varchar(100)},
         {"user_registered", types.datetime},
         {"user_activation_key", types.varchar(60)},
-        {"user_status", types.integer},
+        {"user_status", types.integer({default="0"})},
         {"display_name", types.varchar(250)},
     })
 
