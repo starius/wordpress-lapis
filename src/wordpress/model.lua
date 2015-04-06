@@ -4,6 +4,8 @@ local config = require("lapis.config").get()
 
 local model = {}
 
+local PREFIX = "wp_"
+
 function model.create_schema()
     local types = {
         text = schema.types.varchar,
@@ -23,7 +25,7 @@ function model.create_schema()
         error('Unknown database type')
     end
 
-    schema.create_table("wp_users", {
+    schema.create_table(PREFIX .. "users", {
         {"ID", types.id},
         {"user_login", types.varchar(60)},
         {"user_pass", types.varchar(64)},
@@ -36,7 +38,7 @@ function model.create_schema()
         {"display_name", types.varchar(250)},
     })
 
-    schema.create_table("wp_usermeta", {
+    schema.create_table(PREFIX .. "usermeta", {
         {"umeta_id", types.id},
         {"user_id", types.foreign_key},
         {"meta_key", types.varchar(255)},
@@ -44,14 +46,14 @@ function model.create_schema()
     })
 end
 
-model.Users = Model:extend("wp_users", {
+model.Users = Model:extend(PREFIX .. "users", {
     primary_key = "ID",
     relations = {
         {"usermeta", has_many="UserMeta", key="user_id"}
     },
 })
 
-model.UserMeta = Model:extend("wp_usermeta", {
+model.UserMeta = Model:extend(PREFIX .. "usermeta", {
     primary_key = "umeta_id",
     relations = {
         {"user", belongs_to="Users", key="user_id"}
