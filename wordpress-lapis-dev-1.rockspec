@@ -1,6 +1,7 @@
 package = "wordpress-lapis"
 version = "dev-1"
 source = {
+    -- compile moonscript to Lua
     url = "git://github.com/starius/wordpress-lapis.git"
 }
 description = {
@@ -16,5 +17,6 @@ build = {
     type = "builtin",
     modules = {
         ['wordpress.model'] = 'src/wordpress/model.lua',
+        ['wordpress.admin_app'] = 'src/wordpress/admin_app.lua',
     },
 }
