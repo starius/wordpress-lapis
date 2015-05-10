@@ -9,7 +9,3 @@ site/logs/
 
 # vim
 *.swp
-
-# lua files generated from moonscript files
-src/wordpress/admin_app.lua
-site/app.lua
