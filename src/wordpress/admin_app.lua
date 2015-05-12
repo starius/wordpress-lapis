@@ -72,7 +72,7 @@ end
 
 local check_user = function(f)
     return any_csrf(function(self)
-        if not self.session.user then
+        if not self.session.username then
             return {redirect_to=self:url_for('index')}
         else
             -- set admin flag
@@ -82,7 +82,7 @@ local check_user = function(f)
 end
 
 app:get("index", "/", gen_csrf(function(self)
-    if self.session.user then
+    if self.session.username then
         return {redirect_to = self:url_for('dashboard')}
     else
         -- TODO
@@ -91,14 +91,14 @@ app:get("index", "/", gen_csrf(function(self)
 end))
 
 app:post("login", "/login", check_csrf(function(self)
-    local user = self.req.params_post.user
+    local username = self.req.params_post.username
     -- TODO
-    self.session.user = user
+    self.session.username = username
     return {redirect_to = self:url_for('dashboard')}
 end))
 
 app:post("logout", "/logout", check_user(function(self)
-    self.session.user = nil
+    self.session.username = nil
     return {redirect_to = self:url_for('index')}
 end))
 

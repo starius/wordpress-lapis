@@ -27,11 +27,11 @@ class extends html.Widget
             text ", "
             a href: @url_for('english'), ->
               text "English"
-          if @session.user
+          if @session.username
             element 'td', ->
               text "|"
             element 'td', ->
-              b @session.user
+              b @session.username
             element 'td', ->
               url = @url_for("logout")
               form method: "POST", action: url, ->
