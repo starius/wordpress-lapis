@@ -7,9 +7,10 @@ local model = require("wordpress.model")
 
 local app = lapis.Application()
 
-app.layout = require("views.layout")
+app.layout = require("wordpress.views.layout")
 
 app.cookie_attributes = function(self)
+    local date = require 'date'
     local expires = date(true):adddays(365):fmt("${http}")
     return "Expires=" .. expires .. "; Path=/; HttpOnly"
 end
@@ -85,7 +86,7 @@ app:get("index", "/", gen_csrf(function(self)
         return {redirect_to = self:url_for('dashboard')}
     else
         -- TODO
-        return {render = 'wordpress.views.welcome'}
+        return {render = require('wordpress.views.welcome')}
     end
 end))
 

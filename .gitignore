@@ -9,3 +9,6 @@ site/logs/
 
 # vim
 *.swp
+
+# views
+src/wordpress/views/*.lua

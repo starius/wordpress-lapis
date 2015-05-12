@@ -12,11 +12,16 @@ description = {
 dependencies = {
     "lua >= 5.1",
     "lapis",
+    "date",
+    "mo",
 }
 build = {
     type = "builtin",
     modules = {
         ['wordpress.model'] = 'src/wordpress/model.lua',
         ['wordpress.admin_app'] = 'src/wordpress/admin_app.lua',
+        ['wordpress.random_token'] = 'src/wordpress/random_token.lua',
+        ['wordpress.views.layout'] = 'src/wordpress/views/layout.lua',
+        ['wordpress.views.welcome'] = 'src/wordpress/views/welcome.lua',
     },
 }
