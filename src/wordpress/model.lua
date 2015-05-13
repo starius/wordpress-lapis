@@ -232,4 +232,13 @@ model.Options = Model:extend(PREFIX .. "options", {
 -- Lapis uses it in function add_relations
 package.loaded['models'] = model
 
+function model.checkPassword(username, password)
+    local user = model.Users:find({user_login=username})
+    if not user then
+        return nil, 'No such user'
+    end
+    local phpass = require 'phpass'
+    return phpass.checkPassword(password, user.user_pass)
+end
+
 return model

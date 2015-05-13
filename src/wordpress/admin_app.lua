@@ -92,7 +92,10 @@ end))
 
 app:post("login", "/login", check_csrf(function(self)
     local username = self.req.params_post.username
-    -- TODO
+    local password = self.req.params_post.password
+    if not model.checkPassword(username, password) then
+        return "Bad username or password"
+    end
     self.session.username = username
     return {redirect_to = self:url_for('dashboard')}
 end))
@@ -100,6 +103,10 @@ end))
 app:post("logout", "/logout", check_user(function(self)
     self.session.username = nil
     return {redirect_to = self:url_for('index')}
+end))
+
+app:get("dashboard", "/dashboard", check_user(function(self)
+    return "TODO"
 end))
 
 app:get("russian", "/ru", function(self)
