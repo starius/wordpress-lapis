@@ -12,3 +12,6 @@ site/logs/
 
 # views
 src/wordpress/views/*.lua
+
+# generated files
+*.out
