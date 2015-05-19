@@ -23,5 +23,6 @@ build = {
         ['wordpress.random_token'] = 'src/wordpress/random_token.lua',
         ['wordpress.views.layout'] = 'src/wordpress/views/layout.lua',
         ['wordpress.views.welcome'] = 'src/wordpress/views/welcome.lua',
+        ['wordpress.views.posts'] = 'src/wordpress/views/posts.lua',
     },
 }

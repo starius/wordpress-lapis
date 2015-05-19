@@ -106,6 +106,10 @@ app:post("logout", "/logout", check_user(function(self)
 end))
 
 app:get("dashboard", "/dashboard", check_user(function(self)
+    return {render = require('wordpress.views.posts')}
+end))
+
+app:get("post", "/post/:id", check_user(function(self)
     return "TODO"
 end))
 
