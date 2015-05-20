@@ -7,9 +7,7 @@ class Posts extends Widget
     model = require 'wordpress.model'
     h1 @_("Published posts")
     ul ->
-      for post in *model.publishedPosts!
+      for post in *model.deletedPosts!
         li ->
           a href: @post_url(post), ->
             raw @post_name(post)
-    a href: @deleted_posts_url!, ->
-      raw @_("Deleted posts")

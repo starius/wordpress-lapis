@@ -109,6 +109,11 @@ app:get("dashboard", "/dashboard", check_user(function(self)
     return {render = require('wordpress.views.posts')}
 end))
 
+app:get("posts-deleted", "/post/deleted",
+check_user(function(self)
+    return {render = require('wordpress.views.posts-deleted')}
+end))
+
 app:get("post", "/post/:id", check_user(function(self)
     return {render = require('wordpress.views.post')}
 end))

@@ -246,6 +246,10 @@ function model.publishedPosts()
       'publish')
 end
 
+function model.deletedPosts()
+    return model.Posts:select("where post_status = ?", 'trash')
+end
+
 function model.deletePost(post_id)
     local post = model.Posts:find(post_id)
     post:update {post_status = 'trash'}
