@@ -12,3 +12,8 @@ class Helpers
 
   post_delete_url: (post) =>
     @url_for 'post-delete', id: post.ID
+
+  get_post: (id) =>
+    model = require 'wordpress.model'
+    Posts = model.Posts
+    Posts\find id

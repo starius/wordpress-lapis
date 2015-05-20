@@ -4,9 +4,7 @@ class Posts extends Widget
   @include require('wordpress.views.helpers')
 
   content: =>
-    model = require 'wordpress.model'
-    Posts = model.Posts
-    post = Posts\find @.params.id
+    post = @get_post @.params.id
     h1 @post_name(post)
     a href: @post_edit_url(post), ->
       raw @_("Edit")
