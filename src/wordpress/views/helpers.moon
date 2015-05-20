@@ -48,3 +48,4 @@ class Helpers
   post_link: (post) =>
     a href: @post_url(post), ->
       raw @post_name(post)
+    raw ' ' .. post.comment_count .. ' ' .. @_('comments')
