@@ -125,8 +125,8 @@ end))
 
 app:post("post-delete2", "/post/:id/delete-confirm",
 check_user(function(self)
-    --model.deletePost(self.params.id)
-    return "TODO"
+    model.deletePost(self.params.id)
+    return {redirect_to = self:url_for('dashboard')}
 end))
 
 app:get("russian", "/ru", function(self)

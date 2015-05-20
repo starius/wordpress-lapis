@@ -241,4 +241,14 @@ function model.checkPassword(username, password)
     return phpass.checkPassword(password, user.user_pass)
 end
 
+function model.publishedPosts()
+    return model.Posts:select("where post_status = ?",
+      'publish')
+end
+
+function model.deletePost(post_id)
+    local post = model.Posts:find(post_id)
+    post:update {post_status = 'trash'}
+end
+
 return model
