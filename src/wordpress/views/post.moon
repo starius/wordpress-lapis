@@ -5,4 +5,11 @@ class Posts extends Widget
     model = require 'wordpress.model'
     Posts = model.Posts
     post = Posts\find @.params.id
-    raw post.post_content
+    h1 "%s %q"\format post.post_type, post.post_title
+    a href: (@url_for 'post-edit', id: post.ID), ->
+      raw @_("Edit")
+    raw " | "
+    a href: (@url_for 'post-delete', id: post.ID), ->
+      raw @_("Delete")
+    div class: "post", ->
+      raw post.post_content

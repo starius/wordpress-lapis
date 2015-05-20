@@ -113,6 +113,16 @@ app:get("post", "/post/:id", check_user(function(self)
     return {render = require('wordpress.views.post')}
 end))
 
+app:get("post-edit", "/post/:id/edit",
+check_user(function(self)
+    return "TODO"
+end))
+
+app:get("post-delete", "/post/:id/delete",
+check_user(function(self)
+    return "TODO"
+end))
+
 app:get("russian", "/ru", function(self)
     self.session.lang = 'ru'
     return {redirect_to = self.req.headers.Referer}
