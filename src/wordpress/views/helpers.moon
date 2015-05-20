@@ -44,3 +44,7 @@ class Helpers
 
   post_edit2_url: (post) =>
     @url_for 'post-edit2', id: post.ID
+
+  post_link: (post) =>
+    a href: @post_url(post), ->
+      raw @post_name(post)

@@ -9,5 +9,4 @@ class Posts extends Widget
     ul ->
       for post in *model.deletedPosts!
         li ->
-          a href: @post_url(post), ->
-            raw @post_name(post)
+          @post_link post
