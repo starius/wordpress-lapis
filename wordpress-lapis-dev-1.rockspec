@@ -24,5 +24,6 @@ build = {
         ['wordpress.views.layout'] = 'src/wordpress/views/layout.lua',
         ['wordpress.views.welcome'] = 'src/wordpress/views/welcome.lua',
         ['wordpress.views.posts'] = 'src/wordpress/views/posts.lua',
+        ['wordpress.views.post'] = 'src/wordpress/views/post.lua',
     },
 }

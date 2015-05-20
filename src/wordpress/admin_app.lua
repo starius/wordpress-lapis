@@ -110,7 +110,7 @@ app:get("dashboard", "/dashboard", check_user(function(self)
 end))
 
 app:get("post", "/post/:id", check_user(function(self)
-    return "TODO"
+    return {render = require('wordpress.views.post')}
 end))
 
 app:get("russian", "/ru", function(self)
