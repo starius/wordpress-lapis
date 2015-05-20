@@ -1,4 +1,5 @@
 model = require("wordpress.model")
+random_token = require("wordpress.random_token")
 
 class Helpers
   post_name: (post) =>
@@ -32,3 +33,14 @@ class Helpers
 
   csrf_input: =>
     input type: "hidden", name: "csrf_token", value: @new_csrf
+
+  tinymce: (field_name, content) =>
+    id = random_token!
+    textarea name: field_name, id: id, ->
+      raw content
+    script src: "//tinymce.cachefly.net/4.0/tinymce.min.js"
+    script ->
+      raw 'tinymce.init({selector: "#%s"});'\format(id)
+
+  post_edit2_url: (post) =>
+    @url_for 'post-edit2', id: post.ID

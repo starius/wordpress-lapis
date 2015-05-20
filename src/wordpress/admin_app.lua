@@ -120,6 +120,11 @@ end))
 
 app:get("post-edit", "/post/:id/edit",
 check_user(function(self)
+    return {render = require('wordpress.views.post-edit')}
+end))
+
+app:post("post-edit2", "/post/:id/edit/save",
+check_user(function(self)
     return "TODO"
 end))
 

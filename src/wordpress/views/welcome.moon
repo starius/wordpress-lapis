@@ -9,6 +9,7 @@ class Welcome extends Widget
             value: @new_csrf}
         text @_("Your username: ")
         input type: "text", name: "username"
-        text @_("Your username: ")
+        br!
+        text @_("Your password: ")
         input type: "password", name: "password"
         input type: "submit", value: @_("Login")
