@@ -251,4 +251,9 @@ function model.deletePost(post_id)
     post:update {post_status = 'trash'}
 end
 
+function model.recoverPost(post_id)
+    local post = model.Posts:find(post_id)
+    post:update {post_status = 'publish'}
+end
+
 return model

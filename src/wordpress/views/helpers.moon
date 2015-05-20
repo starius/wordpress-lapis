@@ -16,6 +16,12 @@ class Helpers
   post_delete2_url: (post) =>
     @url_for 'post-delete2', id: post.ID
 
+  post_recover_url: (post) =>
+    @url_for 'post-recover', id: post.ID
+
+  post_recover2_url: (post) =>
+    @url_for 'post-recover2', id: post.ID
+
   get_post: (id) =>
     model = require 'wordpress.model'
     Posts = model.Posts

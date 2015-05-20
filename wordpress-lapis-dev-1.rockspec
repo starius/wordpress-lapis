@@ -27,5 +27,6 @@ build = {
         ['wordpress.views.posts'] = 'src/wordpress/views/posts.lua',
         ['wordpress.views.post'] = 'src/wordpress/views/post.lua',
         ['wordpress.views.post-delete'] = 'src/wordpress/views/post-delete.lua',
+        ['wordpress.views.post-recover'] = 'src/wordpress/views/post-recover.lua',
     },
 }

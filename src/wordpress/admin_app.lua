@@ -125,8 +125,21 @@ end))
 
 app:post("post-delete2", "/post/:id/delete-confirm",
 check_user(function(self)
-    model.deletePost(self.params.id)
-    return {redirect_to = self:url_for('dashboard')}
+    local id = self.params.id
+    model.deletePost(id)
+    return {redirect_to = self:url_for('post', {id=id})}
+end))
+
+app:get("post-recover", "/post/:id/recover",
+check_user(function(self)
+    return {render = require('wordpress.views.post-recover')}
+end))
+
+app:post("post-recover2", "/post/:id/recover-confirm",
+check_user(function(self)
+    local id = self.params.id
+    model.recoverPost(id)
+    return {redirect_to = self:url_for('post', {id=id})}
 end))
 
 app:get("russian", "/ru", function(self)
