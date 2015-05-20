@@ -120,6 +120,12 @@ end))
 
 app:get("post-delete", "/post/:id/delete",
 check_user(function(self)
+    return {render = require('wordpress.views.post-delete')}
+end))
+
+app:post("post-delete2", "/post/:id/delete-confirm",
+check_user(function(self)
+    --model.deletePost(self.params.id)
     return "TODO"
 end))
 
