@@ -125,7 +125,11 @@ end))
 
 app:post("post-edit2", "/post/:id/edit/save",
 check_user(function(self)
-    return "TODO"
+    local id = self.params.id
+    local title = self.params.title
+    local content = self.params.content
+    model.updatePost(id, title, content)
+    return {redirect_to = self:url_for('post', {id=id})}
 end))
 
 app:get("post-delete", "/post/:id/delete",

@@ -260,4 +260,9 @@ function model.recoverPost(post_id)
     post:update {post_status = 'publish'}
 end
 
+function model.updatePost(post_id, title, content)
+    local post = model.Posts:find(post_id)
+    post:update {post_title = title, post_content=content}
+end
+
 return model
