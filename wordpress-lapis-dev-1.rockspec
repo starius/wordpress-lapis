@@ -22,6 +22,7 @@ build = {
         ['wordpress.admin_app'] = 'src/wordpress/admin_app.lua',
         ['wordpress.random_token'] = 'src/wordpress/random_token.lua',
         ['wordpress.views.layout'] = 'src/wordpress/views/layout.lua',
+        ['wordpress.views.helpers'] = 'src/wordpress/views/helpers.lua',
         ['wordpress.views.welcome'] = 'src/wordpress/views/welcome.lua',
         ['wordpress.views.posts'] = 'src/wordpress/views/posts.lua',
         ['wordpress.views.post'] = 'src/wordpress/views/post.lua',
