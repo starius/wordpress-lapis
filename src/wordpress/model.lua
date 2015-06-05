@@ -168,6 +168,7 @@ model.Posts = Model:extend(PREFIX .. "posts", {
     relations = {
         {"author", belongs_to="Users", key="post_author"},
         {"parent", belongs_to="Posts", key="post_parent"},
+        {"comments", has_many="Comments", key="comment_post_ID"},
     },
 })
 

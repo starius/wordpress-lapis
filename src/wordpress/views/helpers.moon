@@ -27,7 +27,6 @@ class Helpers
     @url_for 'posts-deleted'
 
   get_post: (id) =>
-    model = require 'wordpress.model'
     Posts = model.Posts
     Posts\find id
 
@@ -49,3 +48,10 @@ class Helpers
     a href: @post_url(post), ->
       raw @post_name(post)
     raw ' ' .. post.comment_count .. ' ' .. @_('comments')
+
+  comments_list: (post) =>
+    h2 @_('Comments')
+    ul ->
+      for comment in *post\get_comments!
+        li ->
+          raw comment.comment_content

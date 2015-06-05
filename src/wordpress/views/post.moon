@@ -19,3 +19,4 @@ class Posts extends Widget
         raw @_("Recover")
     div class: "post", ->
       raw post.post_content
+    @comments_list(post)
